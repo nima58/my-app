@@ -18,7 +18,7 @@ constructor(props){
     return(
       <ul>
         {this.props.words.map(e => (
-         <li> BCC: {e.bcc},  COM: {e.bccLatinCom},  POS: {e.pos}, English: {e.eng}, Farsi: {e.fa}, Urdu: {e.ur}</li>
+         <li>ID: {e.id} BCC: {e.bcc},  COM: {e.bccLatinCom},  POS: {e.pos}, English: {e.eng}, Farsi: {e.fa}, Urdu: {e.ur}</li>
         ))}
         </ul>
     );

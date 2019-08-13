@@ -1,6 +1,8 @@
 import React from 'react';
 import LexContainer from '../utils/LexContainer';
 import Utils from '../utils/Utils';
+import TableComp from '../comps/TableComp';
+
 class SearchEngToBal extends React.Component{
 
   constructor(props) {
@@ -21,6 +23,7 @@ class SearchEngToBal extends React.Component{
     let engAurocomp =  Utils.getEnglishAutocompUri;
     let url = baseUrl + engAurocomp +  this.props.param;*/
   const url = 'http://localhost:8080/lexicon/words/english?word=' + this.props.param;
+  console.log(url);
   fetch(url)
   .then(res => res.json())
   .then(
@@ -45,8 +48,7 @@ render() {
     return (
       <div>
       <p>Here are the Results from rest api ...</p>
-      echo({this.state.items.length});
-      <LexContainer words = {this.state.items} />
+      <TableComp items = {this.state.items} />
       </div>
     );
   }

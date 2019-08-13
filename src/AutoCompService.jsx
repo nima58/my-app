@@ -1,6 +1,6 @@
 import React from 'react';
 
-class RestService extends React.Component{
+class AutoCompService extends React.Component{
 
   constructor(props) {
   super(props);
@@ -8,11 +8,16 @@ class RestService extends React.Component{
     error: null,
     isLoaded: false,
     word: props.word,
+    lang: props.lang,
     items: []
   };
 }
   componentDidMount() {
-  fetch('http://localhost:8080/lexicon/words/english/autocomp?word=' + this.props.word)
+    let url = 'http://localhost:8080/lexicon/words/english/autocomp?word=' + this.props.word;
+    if(this.props.lang === "bcc"){
+      url = 'http://localhost:8080/lexicon/words/baluchi/autocomp?word=' + this.props.word;
+    }
+  fetch(url)
   .then(res => res.json())
   .then(
     (result) => {
@@ -33,12 +38,13 @@ class RestService extends React.Component{
   )
 }
 render() {
-    return (
-      <div>
-      <p>Results from rest api</p>
-        {this.state.items}
-      </div>
-    );
+  return (
+    <div>
+      {this.state.items.map((item) => (
+        <li>{item}</li>
+      ))}
+    </div>
+  );
   }
 }
-export default RestService;
+export default AutoCompService;

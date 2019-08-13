@@ -4,9 +4,11 @@ import './App.css';
 import Header from './Header';
 import Footer from './Footer';
 import TableRow from './TableRow';
-import RestService from './RestService';
+import AutoCompService from './AutoCompService';
 import SearchEngToBal from './service/SearchEngToBal';
 import Example from './utils/Example';
+import TableComp from './comps/TableComp';
+import BaseService from './service/BaseService';
 
 class App extends React.Component {
   constructor() {
@@ -36,15 +38,12 @@ class App extends React.Component {
   return (
     <div className="App">
     <Header name='myLexicon' version='2.0' description='no description'/>
-    <table>
-         <tbody>
-            {this.state.data.map((person, i) => <TableRow key = {i}
-                   data = {person} />)}
-          </tbody>
-      </table>
-      <RestService word="bas"/>
-      <SearchEngToBal param={'red'} />
+      <AutoCompService word="nam" lang="eng"/>
+      <AutoCompService word="زُبا" lang="bcc"/>
+      <SearchEngToBal param={'green'} />
       <Example />
+      <BaseService isReturningLex = {true} uri = {'http://localhost:8080/lexicon/words/english?word=nam'} />
+      <BaseService isReturningLex = {true} uri = {'http://localhost:8080/lexicon/words/baluchi?word=بلۆچ'} />
       <Footer />
     </div>
   );
