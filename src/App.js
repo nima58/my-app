@@ -38,12 +38,12 @@ class App extends React.Component {
   return (
     <div className="App">
     <Header name='myLexicon' version='2.0' description='no description'/>
-      <AutoCompService word="nam" lang="eng"/>
-      <AutoCompService word="زُبا" lang="bcc"/>
+      <AutoCompService word="com" lang="eng"/>
+      <AutoCompService word="مر" lang="bcc"/>
       <SearchEngToBal param={'green'} />
       <Example />
-      <BaseService isReturningLex = {true} uri = {'http://localhost:8080/lexicon/words/english?word=nam'} />
-      <BaseService isReturningLex = {true} uri = {'http://localhost:8080/lexicon/words/baluchi?word=بلۆچ'} />
+      <BaseService isReturningLex = {true} uri = {'http://localhost:8080/lexicon/words/english?word=br'} />
+      <BaseService isReturningLex = {true} uri = {'http://localhost:8080/lexicon/words/baluchi?word=بر'} />
       <Footer />
     </div>
   );
